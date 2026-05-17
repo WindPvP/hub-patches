@@ -1,0 +1,12 @@
+name: hub-patches
+version: 1.0
+main: com.windpvp.hub.HubPatches
+api-version: 1.8
+description: Handles spawn location
+author: windcolor-dev
+
+commands:
+  sethubspawn:
+    description: Sets the hub spawn location.
+    permission: hubpatches.admin
+    permission-message: §cYou do not have permission to execute this command!
