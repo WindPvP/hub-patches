@@ -2,11 +2,37 @@ name: hub-patches
 version: 1.0
 main: com.windpvp.hub.HubPatches
 api-version: 1.8
-description: Handles spawn location
+description: Handles spawn location, custom hub warps, and persistent particles.
 author: windcolor-dev
 
 commands:
   sethubspawn:
-    description: Sets the hub spawn location.
+    description: Sets the initial login hub spawn location.
     permission: hubpatches.admin
     permission-message: §cYou do not have permission to execute this command!
+  setaliaswarp:
+    description: Sets the destination for an alias warp command.
+    permission: hubpatches.admin
+    permission-message: §cYou do not have permission to execute this command!
+  addparticle:
+    description: Spawn a permanent particle.
+    permission: hubpatches.admin
+    permission-message: §cYou do not have permission to execute this command!
+  listparticles:
+    description: Shows all registered persistent particles ordered by ID.
+    permission: hubpatches.admin
+    permission-message: §cYou do not have permission to execute this command!
+  removeparticle:
+    description: Completely delete a specific particle by its ID.
+    permission: hubpatches.admin
+    permission-message: §cYou do not have permission to execute this command!
+  clearparticles:
+    description: Wipe all persistent particles.
+    permission: hubpatches.admin
+    permission-message: §cYou do not have permission to execute this command!
+  spawn:
+    description: Teleport directly to the spawn location.
+  arcade:
+    description: Teleport directly to the arcade area.
+  lobby:
+    description: Teleport directly to the main lobby.
