@@ -1,5 +1,6 @@
 package com.windpvp.hub.listeners;
 
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -21,14 +22,20 @@ public class HubListeners implements Listener {
         if (plugin.getHubSpawnLocation() != null) {
             event.setSpawnLocation(plugin.getHubSpawnLocation());
         }
+        
         Player player = event.getPlayer();
-        if (player.hasPermission("hubpatches.fly")) {
-			player.setAllowFlight(true);
-			player.setFlying(true);
-		} else {
-			player.setAllowFlight(false);
-			player.setFlying(false);
-		}
+        
+        Bukkit.getScheduler().runTaskLater(plugin, () -> {
+            if (player.isOnline()) { // Safety check in case they instantly disconnected
+                if (player.hasPermission("hubpatches.fly")) {
+                    player.setAllowFlight(true);
+                    player.setFlying(true);
+                } else {
+                    player.setAllowFlight(false);
+                    player.setFlying(false);
+                }
+            }
+        }, 1L); // 1 tick delay
     }
     
     @EventHandler
